@@ -1,0 +1,1 @@
+# mybatis-cdi-junit
