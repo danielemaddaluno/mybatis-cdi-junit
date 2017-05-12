@@ -19,6 +19,10 @@ public class TimeBean {
 	@Inject
 	TimeMapper time;
 	
+	public String now2(){
+		return String.valueOf(System.currentTimeMillis());
+	}
+	
 	@Transactional
 	public String now(){
 		return time.now();
