@@ -1,0 +1,2 @@
+org.jboss.weld.manager.WeldServletScopesSupportForSe
+org.mybatis.cdi.MybatisExtension
