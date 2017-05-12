@@ -3,6 +3,7 @@ package com.madx.mybatis;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -14,6 +15,7 @@ import com.madx.mybatis.data.mappers.TimeMapper;
 
 
 @RunWith(Arquillian.class)
+@RunAsClient
 public class TimeTestArquillian {
 
 //	// This static method builds the virtual test deployment archive
@@ -31,7 +33,14 @@ public class TimeTestArquillian {
 //            .addPackage(TimeMapper.class.getPackage())
 //            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 //    }
-	
+//    @Deployment
+//    public static Archive<?> createDeployment() {
+//      JavaArchive archive = ShrinkWrap.create(JavaArchive.class)
+//    		  .addClass(TimeMapper.class)
+//    		  .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+//       return archive;
+//    }
+
 	// This static method builds the virtual test deployment archive
     @Deployment
     public static WebArchive createDeployment() {
@@ -44,8 +53,16 @@ public class TimeTestArquillian {
 	@Inject
 	TimeMapper time;
 	
+	@Inject
+	TimeBean timeBean;
+	
 	@Test
 	public void testNow(){
 		System.out.println(time.now());
+	}
+	
+	@Test
+	public void testNowEjb(){
+		System.out.println(timeBean.simpleNow());
 	}
 }

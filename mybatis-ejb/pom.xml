@@ -19,6 +19,18 @@
 		<version.org.wildfly>1.0.0.Alpha5</version.org.wildfly>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.1.11.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 
 	<dependencies>
 
@@ -66,13 +78,6 @@
 			<artifactId>arquillian-spi</artifactId>
 			<version>${org.jboss.arquillian.spi.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.arquillian</groupId>
-			<artifactId>arquillian-bom</artifactId>
-			<version>1.1.11.Final</version>
-			<scope>import</scope>
-			<type>pom</type>
 		</dependency>
 		<!-- ARQUILLIAN -->
 
