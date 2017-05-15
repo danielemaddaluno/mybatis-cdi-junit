@@ -11,4 +11,7 @@ public interface TimeMapper {
     
     @Insert("INSERT INTO test(name) VALUES (#{name})")
     public void addName(String name);
+    
+    @Select("SELECT count(*) from test")
+    public Integer count();
 }
