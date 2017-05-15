@@ -23,20 +23,22 @@ public class UserMapperTestReadWrite {
 	String name = "E";
 
 	@Test
-	public void t2_count() {
-		Integer number = timeMapper.count();
-		assertEquals(Integer.valueOf(1), number);
-	}
-
-	@Test
 	@Transactional(rollbackOnly = true)
 	public void t1_insert() {
-		int sizeBefore = timeMapper.count();
+		Integer sizeBefore = timeMapper.count();
+		assertEquals(Integer.valueOf(0), sizeBefore);
+		
 
 		timeMapper.addName(name);
 
-		int sizeAfter = timeMapper.count();
-		assertEquals(sizeBefore + 1, sizeAfter);
+		Integer sizeAfter = timeMapper.count();
+		assertEquals(Integer.valueOf(sizeBefore + 1), sizeAfter);
+	}
+	
+	@Test
+	public void t2_count() {
+		Integer number = timeMapper.count();
+		assertEquals(Integer.valueOf(0), number);
 	}
 
 	@Test

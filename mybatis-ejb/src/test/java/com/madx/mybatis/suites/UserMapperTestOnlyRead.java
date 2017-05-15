@@ -21,6 +21,6 @@ public class UserMapperTestOnlyRead {
 	@Test
 	public void t1_select() {
 		Integer number = timeMapper.count();
-		assertEquals(Integer.valueOf(1), number);
+		assertEquals(Integer.valueOf(0), number);
 	}
 }
