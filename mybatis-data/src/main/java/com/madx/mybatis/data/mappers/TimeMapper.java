@@ -14,4 +14,7 @@ public interface TimeMapper {
     
     @Select("SELECT count(*) from test")
     public Integer count();
+    
+    @Select("DELETE from test where name = #{name}")
+    public void remove(String name);
 }
